@@ -21,7 +21,7 @@ public class Schema {
         try {
             Connection connection = conn.getConnectionWithoutDB();
             Statement statement = connection.createStatement();
-            statement.executeUpdate("CREATE DATABASE IF NOT EXISTS javafx_1");
+            statement.executeUpdate("CREATE DATABASE IF NOT EXISTS expense_tracker");
         } catch (SQLException ex) {
             Logger.getLogger(Schema.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -31,7 +31,7 @@ public class Schema {
         try {
             Connection connection = conn.getConnection();
             Statement statement = connection.createStatement();
-            statement.executeUpdate("USE javafx_1");
+            statement.executeUpdate("USE expense_tracker");
             statement.executeUpdate("CREATE TABLE IF NOT EXISTS `users` (\n" +
                     "            `id` int(11) NOT NULL AUTO_INCREMENT,\n" +
                     "            `name` varchar(255) NOT NULL,\n" +
@@ -47,7 +47,7 @@ public class Schema {
         try {
             Connection connection = conn.getConnection();
             Statement statement = connection.createStatement();
-            statement.executeUpdate("USE javafx_1");
+            statement.executeUpdate("USE expense_tracker");
             statement.executeUpdate("CREATE TABLE IF NOT EXISTS `expenses` (\n" +
                     "    `id` int(11) NOT NULL AUTO_INCREMENT,\n" +
                     "    `user_id` int(11) NOT NULL,\n" +
@@ -68,7 +68,7 @@ public class Schema {
         try {
             Connection connection = conn.getConnection();
             Statement statement = connection.createStatement();
-            statement.executeUpdate("USE javafx_1");
+            statement.executeUpdate("USE expense_tracker");
             statement.executeUpdate("CREATE TABLE IF NOT EXISTS `income` (\n" +
                     "    `id` int(11) NOT NULL AUTO_INCREMENT,\n" +
                     "    `user_id` int(11) NOT NULL,\n" +
