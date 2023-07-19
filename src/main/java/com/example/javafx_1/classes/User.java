@@ -1,7 +1,12 @@
 package com.example.javafx_1.classes;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class User {
-    private int id;
+     private int id;
     private String name;
     private String username;
     private String password;
@@ -46,4 +51,7 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+
+
 }
