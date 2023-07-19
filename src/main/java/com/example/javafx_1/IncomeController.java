@@ -131,7 +131,24 @@ public class IncomeController implements Initializable {
 
     @FXML
     void handleDelete(ActionEvent event) {
+        Income selected = tableView.getSelectionModel().getSelectedItem();
+        if (selected != null) {
+            int id = selected.getId();
+            String sql = "DELETE FROM income WHERE id = ?";
+            try {
+                PreparedStatement pst = conn.getConnection().prepareStatement(sql);
+                pst.setInt(1, id);
+                pst.executeUpdate();
+                loadIncome();
+                CustomAlert.showAlert(Alert.AlertType.INFORMATION, "Success", "Data Deleted", "Income deleted successfully.");
+            } catch (SQLException e) {
+                System.out.println(e);
+                CustomAlert.showAlert(Alert.AlertType.ERROR, "Error", "Data Not Deleted", "An error occurred while deleting Income data.");
+            }
+        } else {
+            CustomAlert.showAlert(Alert.AlertType.NONE, "None", "Data Not selected", "Data not selected");
 
+        }
     }
 
     @FXML
@@ -155,7 +172,26 @@ public class IncomeController implements Initializable {
 
     @FXML
     void handleUpdate(ActionEvent event) {
-
+        Income selectedIncome = tableView.getSelectionModel().getSelectedItem();
+        if (selectedIncome != null) {
+            int id = selectedIncome.getId();
+            String sql = "UPDATE income SET user_id = ?, amount = ?, description = ?, date_received = ? WHERE id = ?";
+            try {
+                PreparedStatement pst = conn.getConnection().prepareStatement(sql);
+                pst.setString(1, getUserByName());
+                pst.setString(2, txtAmount.getText());
+                pst.setString(3, txtDescription.getText());
+                pst.setString(4, txtDate.getValue().toString());
+                pst.setInt(5, id);
+                pst.executeUpdate();
+                CustomAlert.showAlert(Alert.AlertType.INFORMATION, "Success", "Data Updated", "User data updated successfully.");
+                loadIncome();
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
+        } else {
+            CustomAlert.showAlert(Alert.AlertType.NONE, "None", "Data Not selected", "Data not selected");
+        }
     }
 
     @FXML
