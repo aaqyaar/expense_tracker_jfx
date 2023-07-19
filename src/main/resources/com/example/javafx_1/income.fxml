@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="479.0" prefWidth="486.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafx_1.ExpenseController">
+<AnchorPane prefHeight="479.0" prefWidth="486.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafx_1.IncomeController">
     <children>
         <Label layoutX="15.0" layoutY="12.0" text="Name" />
         <TextField fx:id="txtName" layoutX="15.0" layoutY="32.0" prefHeight="34.0" prefWidth="223.0" />
@@ -16,7 +15,6 @@
         <Button layoutX="281.0" layoutY="141.0" mnemonicParsing="false" onAction="#handleUpdate" prefHeight="34.0" prefWidth="86.0" style="-fx-background-color: #334155;" text="Update" textFill="WHITE" />
         <Button layoutX="181.0" layoutY="141.0" mnemonicParsing="false" onAction="#handleCreate" prefHeight="34.0" prefWidth="86.0" style="-fx-background-color: #334155;" text="Save" textFill="WHITE" />
 
-
         <TableView fx:id="tableView" layoutY="236.0" prefHeight="242.0" prefWidth="486.0">
             <columns>
                 <TableColumn prefWidth="75.0" text="ID" />
@@ -27,6 +25,7 @@
         </TableView>
 
 
-      <TextField fx:id="txtSearch" layoutX="15.0" layoutY="185.0" onAction="#handleFilter" prefHeight="34.0" prefWidth="450.0" promptText="Search User" />
+        <TextField fx:id="txtSearch" layoutX="15.0" layoutY="185.0" onAction="#handleFilter" prefHeight="34.0" prefWidth="450.0" promptText="Search Income" />
+
     </children>
 </AnchorPane>

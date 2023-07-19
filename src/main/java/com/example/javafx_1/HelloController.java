@@ -46,4 +46,12 @@ public class HelloController {
         centerPane.getChildren().clear();
         centerPane.getChildren().addAll(view);
     }
+    @FXML
+    void handleIncome(ActionEvent event) {
+        LoaderController object = new LoaderController();
+        Pane view = object.getPage("income");
+        centerPane.getChildren().clear();
+        centerPane.getChildren().addAll(view);
+    }
+
 }
